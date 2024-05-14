@@ -5,8 +5,9 @@ public class PlayerInputController : TopDownController
 {
     private Camera camera;
 
-    private void Awake()
+    protected override void Awake() // TopDownController가 부모 Awake
     {
+        base.Awake(); // 부모의 Awake도 실행하세요.
         camera = Camera.main; // mainCamera태그 붙어있는 카메라를 가져온다
     }
 

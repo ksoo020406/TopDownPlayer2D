@@ -4,6 +4,7 @@ public class TopDownMovement : MonoBehaviour
 {
     private TopDownController movementController;
     private Rigidbody2D movementRigidbody;
+    private CharacterStatHandler characterStatHandler; // 캐릭터 스탯 가져오기
 
     private Vector2 movementDirection = Vector2.zero;
 
@@ -14,6 +15,7 @@ public class TopDownMovement : MonoBehaviour
         // controller랑 TopDownMovement랑 같은 게임오브젝트 안에 있다는 가정
         movementController = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+        characterStatHandler = GetComponent<CharacterStatHandler>(); // 캐릭터 스탯 가져오기
     }
 
     private void Start()
@@ -40,7 +42,8 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5; // 아직 캐릭터의 스탯이 구현되지 않았으므로 임의 스피드 5를 곱해준다.
+         direction = direction * 5.0f; // 아직 캐릭터의 스탯이 구현되지 않았으므로 임의 스피드 5를 곱해준다.
+        //direction = direction * characterStatHandler.CurrentStat.speed; // 캐릭터의 스피드 스탯 받기
 
         movementRigidbody.velocity = direction;
     }

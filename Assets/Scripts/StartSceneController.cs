@@ -6,24 +6,9 @@ using UnityEngine.UI;
 
 public class StartSceneController : MonoBehaviour
 {
-    public static StartSceneController instance;
-
     // InputField UI 로 텍스트 입력을 받아...
     public InputField playerNameInput;
     public string playerName;
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // 씬을 이동해도 지우지 말아요...
-        }
-        else
-        {
-            Destroy(gameObject); // 이미 있으면 지워요...
-        }
-    }
 
     private void Update()
     {

@@ -42,8 +42,8 @@ public class TopDownMovement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-         direction = direction * 5.0f; // 아직 캐릭터의 스탯이 구현되지 않았으므로 임의 스피드 5를 곱해준다.
-        //direction = direction * characterStatHandler.CurrentStat.speed; // 캐릭터의 스피드 스탯 받기
+        // direction = direction * 5.0f; // 아직 캐릭터의 스탯이 구현되지 않았으므로 임의 스피드 5를 곱해준다.
+        direction = direction * characterStatHandler.CurrentStat.speed; // 캐릭터의 스피드 스탯 받기
 
         movementRigidbody.velocity = direction;
     }
